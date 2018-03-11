@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/bootstrap/css/bootstrap.css' />
+    <script src="/bootstrap/js/jquery-1.11.0.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
+
+  </head>
+  <body>
+
+    <%- include("header.ejs",{isshow:false})%>
+    <div class="panel panel-primary" style="text-align: center; width: 90%;margin:0 auto">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= info.title %></h3>
+      </div>
+      <div class="panel-body" style="">
+            <p>作者：<a href="/"><%= info.author %>&nbsp;&nbsp;&nbsp;&nbsp;</a> 发布时间：<%= (new Date(info.date)).getFullYear() + '-' + ((new Date(info.date)).getMonth() + 1) + '-' + (new Date(info.date)).getDate() + ' ' + (new Date(info.date)).getHours() + ':' + (new Date(info.date)).getMinutes() + ':' + (new Date(info.date)).getSeconds(); %></p>
+            <pre>
+              <%= info.content %>
+            </pre>
+
+
+      </div>
+   </div>
+   </body>
+</html>

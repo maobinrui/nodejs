@@ -1,0 +1,16 @@
+// body {
+//   padding: 50px;
+//   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+// }
+
+// a {
+//   color: #00B7FF;
+// }
+//
+.main{
+    width: 500px;
+    // max-height: 800px;
+    margin:10px auto;
+    height: 500px;
+    background: #0ff;
+}

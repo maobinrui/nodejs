@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/bootstrap/css/bootstrap.css' />
+    <script src="/bootstrap/js/jquery-1.11.0.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
+
+  </head>
+  <body>
+
+    <%- include("header.ejs",{isshow:false})%>
+
+
+
+<!--     <ul>
+
+        <li>
+
+        </li>
+
+    </ul> -->
+
+    <div class="table-responsive" style="margin:20px;">
+      <table class="table table-hover "  style="text-align:center;">
+      <caption>我的日志</caption>
+      <thead >
+          <tr class="info"  >
+            <th style="width:10%;text-align:center;">#</th>
+            <th style="width:20%;text-align:center;">作者</th>
+            <th style="width:35%;text-align:center;">标题</th>
+            <th style="width:20%;text-align:center;">发表时间</th>
+            <th style="width:15%;text-align:center;">操作&nbsp;&nbsp;&nbsp;&nbsp;</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0;i<list.length;i++){%>
+          <tr>
+              <th style="text-align:center;"><%=i+1%></th>
+              <td><%= list[i].author %></td>
+              <td><a href="/detail/<%= list[i]._id %>"><%= list[i].title %></a></td>
+              <td><%= (new Date(list[i].date)).getFullYear() + '-' + ((new Date(list[i].date)).getMonth() + 1) + '-' + (new Date(list[i].date)).getDate() + ' ' + (new Date(list[i].date)).getHours() + ':' + (new Date(list[i].date)).getMinutes() + ':' + (new Date(list[i].date)).getSeconds(); %></td>
+              <td><p>
+                  <a type="button" class="btn btn-primary btn-xs"  href="/writing/update/<%= list[i]._id %>">编辑</a>
+                  <a  class="btn  btn-danger btn-xs" data-toggle="modal" data-target="#myModal">删除</a>
+                 <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">确定删除：</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p><%= list[i].title %>？</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <a   class="btn btn-primary" href="/writing/del/<%= list[i]._id %>">删除</a>
+                          </div>
+                        </div><!-- /.modal-content -->
+                      </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                </p>
+              </td>
+          </tr>
+        <%}%>
+      </tbody>
+
+
+      </table>
+    </div>
+
+  </body>
+</html>
